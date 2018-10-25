@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.home {
+  &__heading {
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
+    color: $color-grey-light-2;
+    letter-spacing: 2rem;
+  }
+}
+
+.header {
+  &__heading {
+    color: $color-primary-light-1;
+    text-decoration: none;
+  }
+
+  &__heading--active {
+    color: $color-primary-dark-2;
+  }
+}
+
+.hikes {
+  &__header {
+    font-size: 1.7rem;
+    background-color: $color-grey-dark-2;
+    padding: 0;
+  }
+
+  &__item {
+    font-size: 1.5rem;
+  }
+
+  &__add {
+    background-color: $color-primary;
+    color: $color-grey-light-1;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 4rem;
+  }
+}
+
+.user {
+  &__auth-btn {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__auth-btn--inactive {
+    color: $color-grey-light-1;
+  }
+  &__auth-btn--active {
+    color: $color-grey-dark-2;
+  }
+}
+
+.new-hike {
+  &__container {
+  }
+
+  &__form {
+  }
+
+  &__label {
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  &__input {
+  }
+
+  &__submit {
+  }
+}
