@@ -1,4 +1,4 @@
-# React MOUNTAINS
+# React HIKETRACKER
 Like hiking and need to store your walks? You've found the right app!
 
 ## Motivation
