@@ -1,5 +1,5 @@
 # React HIKETRACKER
-Like hiking and need to store your walks? You've found the right app!
+Like hiking and need to record some data about your walks? You've found the right app!
 
 ## Motivation
 Actually, this project is for now just a test. I wanted to practice building a React app from scratch, setting up Webpack, Babel, and linking React with Redux, React-Router.

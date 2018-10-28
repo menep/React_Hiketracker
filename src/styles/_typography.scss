@@ -82,3 +82,18 @@ body {
   &__submit {
   }
 }
+
+.no-match {
+  &__heading {
+    text-align: center;
+    font-weight: 300;
+
+    &--one {
+      font-size: 5rem;
+    }
+    
+    &--two {
+      font-size: 3rem;
+    }
+  }
+}

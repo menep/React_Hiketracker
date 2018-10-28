@@ -122,3 +122,10 @@
     margin: 0 auto;
   }
 }
+
+.no-match {
+  &__container {
+    margin: auto;
+    transform: translateY(-50%);
+  }
+}
