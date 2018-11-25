@@ -31,5 +31,6 @@ module.exports = {
     hotOnly: true,
     historyApiFallback: true
   },
+  devtool: "cheap-eval-source-map",
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

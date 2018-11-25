@@ -29,7 +29,6 @@ The heading logo on the top-left corner will take you back to the landing page.
 
 ## Future features
 - Persist data to local storage
-- No 404 page yet! Coming soon
 - When a new hike is successfully submitted, the app will take you back to the list of hikes
 - More values (location, scenery rating, difficulty...)
 - New UI for the hike list
