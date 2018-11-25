@@ -18,6 +18,7 @@ class NewHike extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getForm = this.getForm.bind(this);
   }
 
   handleChange(event) {
@@ -30,49 +31,55 @@ class NewHike extends React.Component {
     this.props.addHike({ ...this.state, id: uuidv1() });
   }
 
+  getForm() {
+    return [
+      {
+        type: "text",
+        id: "name",
+        label: "Name",
+        placeholder: "Where did you hike?"
+      },
+      {
+        type: "date",
+        id: "date",
+        label: "Date"
+      },
+      {
+        type: "number",
+        id: "duration",
+        label: "Duration",
+        placeholder: "In hours"
+      },
+      {
+        type: "number",
+        id: "rating",
+        label: "Rating",
+        min: 1,
+        max: 5,
+        placeholder: "A value between 1 and 5"
+      }
+    ];
+  }
+
   render() {
     return (
       <section className="new-hike__container">
         <form className="new-hike__form" onSubmit={this.handleSubmit}>
-          <label className="new-hike__label">
-            <span className="new-hike__title">Name</span>
-            <input
-              type="text"
-              id="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-              className="new-hike__input"
-            />
-          </label>
-          <label className="new-hike__label">
-            <span className="new-hike__title">Date</span>
-            <input
-              id="date"
-              type="date"
-              onChange={this.handleChange}
-              className="new-hike__input"
-            />
-          </label>
-          <label className="new-hike__label">
-            <span className="new-hike__title">Duration (hours)</span>
-            <input
-              id="duration"
-              type="number"
-              onChange={this.handleChange}
-              className="new-hike__input"
-            />
-          </label>
-          <label className="new-hike__label">
-            <span className="new-hike__title">Rating</span>
-            <input
-              type="number"
-              id="rating"
-              min="0"
-              max="100"
-              onChange={this.handleChange}
-              className="new-hike__input"
-            />
-          </label>
+          {this.getForm().map(item => (
+            <label key={item.id} className="new-hike__label">
+              <span className="new-hike__title">{item.label}</span>
+              <input
+                type={item.type}
+                id={item.id}
+                value={this.state[item.id]}
+                onChange={this.handleChange}
+                className="new-hike__input"
+                min={item.min}
+                max={item.max}
+                placeholder={item.placeholder}
+              />
+            </label>
+          ))}
           <input type="submit" value="Submit" className="new-hike__submit" />
         </form>
       </section>
