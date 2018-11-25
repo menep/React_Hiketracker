@@ -17,9 +17,6 @@ class NewHike extends React.Component {
       duration: "",
       rating: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.getForm = this.getForm.bind(this);
   }
 
   handleChange(event) {
@@ -31,7 +28,7 @@ class NewHike extends React.Component {
     event.preventDefault();
     this.props.addHike({
       ...this.state,
-      date: moment(this.state.date).format("D / MM / YYYY"),
+      date: moment(this.state.date).format("DD / MM / YYYY"),
       id: uuidv1()
     });
   }
@@ -47,7 +44,8 @@ class NewHike extends React.Component {
       {
         type: "date",
         id: "date",
-        label: "Date"
+        label: "Date",
+        max: moment().format("YYYY-MM-DD")
       },
       {
         type: "number",
@@ -69,7 +67,7 @@ class NewHike extends React.Component {
   render() {
     return (
       <section className="new-hike__container">
-        <form className="new-hike__form" onSubmit={this.handleSubmit}>
+        <form className="new-hike__form" onSubmit={(e) => this.handleSubmit(e)}>
           {this.getForm().map(item => (
             <label key={item.id} className="new-hike__label">
               <span className="new-hike__title">{item.label}</span>
@@ -77,11 +75,12 @@ class NewHike extends React.Component {
                 type={item.type}
                 id={item.id}
                 value={this.state[item.id]}
-                onChange={this.handleChange}
+                onChange={(e) => this.handleChange(e)}
                 className="new-hike__input"
                 min={item.min}
                 max={item.max}
                 placeholder={item.placeholder}
+                required
               />
             </label>
           ))}
