@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import { addHike } from "../../state/actions";
+import moment from "moment";
 
 const mapDispatchToProps = dispatch => ({
   addHike: hike => dispatch(addHike(hike))
@@ -28,7 +29,11 @@ class NewHike extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addHike({ ...this.state, id: uuidv1() });
+    this.props.addHike({
+      ...this.state,
+      date: moment(this.state.date).format("D / MM / YYYY"),
+      id: uuidv1()
+    });
   }
 
   getForm() {

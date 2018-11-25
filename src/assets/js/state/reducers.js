@@ -1,10 +1,10 @@
 const initialState = {
   hikes: [
     {
-      date: "13/10/18",
+      date: "13 / 10 / 2018",
       name: "Mont Blanc",
       duration: "12",
-      rating: "***",
+      rating: "3",
       id: "asdas"
     }
   ]
