@@ -16,8 +16,19 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.(png|jpe?g)$/,
-        use: "file-loader"
+        test: /\.(png|jpe?g)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              name: "./img/[name].[ext]",
+              limit: 8192
+            }
+          },
+          {
+            loader: "img-loader"
+          }
+        ]
       }
     ]
   },
