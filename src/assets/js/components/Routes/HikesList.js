@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 const mapStateToProps = state => ({ hikes: state.hikes });
 
@@ -32,6 +33,10 @@ const HikesList = props => {
       </Link>
     </main>
   );
+};
+
+HikesList.propTypes = {
+  hikes: PropTypes.array
 };
 
 export default connect(mapStateToProps)(HikesList);

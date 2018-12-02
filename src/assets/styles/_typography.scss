@@ -6,11 +6,12 @@ body {
 
 .home {
   &__heading {
-    font-size: 3rem;
-    font-weight: 300;
-    text-align: center;
+    font-size: 4rem;
+    font-weight: 200;
     color: $color-grey-light-2;
-    letter-spacing: 2rem;
+    letter-spacing: 3.5rem;
+    text-transform: uppercase;
+    text-shadow: $color-grey-dark-3 1px 0 10px;
   }
 }
 
@@ -19,16 +20,13 @@ body {
     color: $color-primary-light-1;
     text-decoration: none;
   }
-
-  &__heading--active {
-    color: $color-primary-dark-2;
-  }
 }
 
 .hikes {
   &__header {
     font-size: 1.7rem;
-    background-color: $color-grey-dark-2;
+    background-color: $color-grey-light-3;
+    opacity: 0.7;
     padding: 0;
   }
 
@@ -91,7 +89,7 @@ body {
     &--one {
       font-size: 5rem;
     }
-    
+
     &--two {
       font-size: 3rem;
     }

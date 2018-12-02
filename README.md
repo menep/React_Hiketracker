@@ -25,12 +25,13 @@ The heading logo on the top-left corner will take you back to the landing page.
 - Managing state with Redux
 
 ## Known issues
-- No value check on the inputs yet
 
 ## Future features
 - Persist data to local storage
-- When a new hike is successfully submitted, the app will take you back to the list of hikes
 - More values (location, scenery rating, difficulty...)
 - New UI for the hike list
 - Database
 - Authentication
+
+## Images
+The background in the home section was taken by me.

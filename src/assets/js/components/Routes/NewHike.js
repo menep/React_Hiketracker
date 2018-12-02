@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import { addHike } from "../../state/actions";
@@ -15,7 +16,8 @@ class NewHike extends React.Component {
       date: "",
       name: "",
       duration: "",
-      rating: ""
+      rating: "",
+      redirect: false
     };
   }
 
@@ -31,6 +33,7 @@ class NewHike extends React.Component {
       date: moment(this.state.date).format("DD / MM / YYYY"),
       id: uuidv1()
     });
+    this.setState(() => ({ redirect: true }));
   }
 
   getForm() {
@@ -65,9 +68,13 @@ class NewHike extends React.Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      // after the submission, state will be updated so that the page can be redirected to the list of stored hikes
+      return <Redirect to="/my-hikes"/>;
+    }
     return (
       <section className="new-hike__container">
-        <form className="new-hike__form" onSubmit={(e) => this.handleSubmit(e)}>
+        <form className="new-hike__form" onSubmit={e => this.handleSubmit(e)}>
           {this.getForm().map(item => (
             <label key={item.id} className="new-hike__label">
               <span className="new-hike__title">{item.label}</span>
@@ -75,7 +82,7 @@ class NewHike extends React.Component {
                 type={item.type}
                 id={item.id}
                 value={this.state[item.id]}
-                onChange={(e) => this.handleChange(e)}
+                onChange={e => this.handleChange(e)}
                 className="new-hike__input"
                 min={item.min}
                 max={item.max}
