@@ -1,3 +1,5 @@
+import { ADD_HIKE } from "./actions";
+
 const initialState = {
   hikes: [
     {
@@ -12,8 +14,10 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_HIKE":
-      return { ...state, hikes: state.hikes.concat(action.payload) };
+    case ADD_HIKE:
+      return Object.assign({}, state, {
+        hikes: [...state.hikes, action.payload]
+      });
     default:
       return state;
   }

@@ -23,6 +23,7 @@ The heading logo on the top-left corner will take you back to the landing page.
 - Webpack and Babel setup from scratch
 - Routing with react-router
 - Managing state with Redux
+- Unit testing with Jest
 
 ## Known issues
 
