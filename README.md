@@ -14,6 +14,10 @@ npm install
 ## How to run
 npm start
 
+## Screenshots
+
+![alt text](./screenshots/home.jpeg?raw=true)
+
 ## How to use
 The landing page is just for esthetics.
 You can navigate the app by clicking on "My Hikes" on the top-right corner, see a (for now empty) list of hikes, click on the "add" button and fill the form to add a new entry to the list.
