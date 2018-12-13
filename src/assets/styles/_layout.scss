@@ -49,8 +49,7 @@
   &__container {
     width: 100vw;
     height: calc(100vh - var(--header-height));
-    background-image: url("../img/home-background.jpg");
-    filter: grayscale(.8);
+    background-image: url("../img/home-background.jpeg");
     background-size: cover;
     background-position: center;
   }

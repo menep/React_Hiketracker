@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header
+  className="header__container"
+>
+  <div
+    className="header__logo"
+  >
+    <h2>
+      <a
+        aria-current="page"
+        className="header__heading header__heading--active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        HTKR
+      </a>
+    </h2>
+  </div>
+  <ul
+    className="user__container"
+  >
+    <li
+      className="user__auth-btn"
+    >
+      <a
+        aria-current={null}
+        className="user__auth-btn--inactive"
+        href="/my-hikes"
+        onClick={[Function]}
+      >
+        My Hikes
+      </a>
+    </li>
+  </ul>
+</header>
+`;
+
+exports[`User renders correctly 1`] = `
+<ul
+  className="user__container"
+>
+  <li
+    className="user__auth-btn"
+  >
+    <a
+      aria-current={null}
+      className="user__auth-btn--inactive"
+      href="/my-hikes"
+      onClick={[Function]}
+    >
+      My Hikes
+    </a>
+  </li>
+</ul>
+`;
