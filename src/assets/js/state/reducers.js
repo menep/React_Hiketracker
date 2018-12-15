@@ -1,15 +1,13 @@
-import { ADD_HIKE } from "./actions";
+import {
+  ADD_HIKE,
+  FETCH_HIKES_BEGIN,
+  FETCH_HIKES_SUCCESS,
+  FETCH_HIKES_FAILURE
+} from "./actions";
 
 const initialState = {
-  hikes: [
-    {
-      date: "13 / 10 / 2018",
-      name: "Mont Blanc",
-      duration: "12",
-      rating: "3",
-      id: "asdas"
-    }
-  ]
+  error: false,
+  hikes: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -18,6 +16,12 @@ const rootReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         hikes: [...state.hikes, action.payload]
       });
+    case FETCH_HIKES_BEGIN:
+      return Object.assign({}, state, { error: false });
+    case FETCH_HIKES_SUCCESS:
+      return Object.assign({}, state, { hikes: action.payload });
+    case FETCH_HIKES_FAILURE:
+      return Object.assign({}, state, { error: true });
     default:
       return state;
   }

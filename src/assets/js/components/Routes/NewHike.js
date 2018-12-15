@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import { addHike } from "../../state/actions";
 import moment from "moment";
+import fire from "../../firebase/firebase";
 
 const mapDispatchToProps = dispatch => ({
   addHike: hike => dispatch(addHike(hike))
@@ -13,26 +14,36 @@ class NewHike extends React.Component {
   constructor() {
     super();
     this.state = {
-      date: "",
-      name: "",
-      duration: "",
-      rating: "",
+      hike: {
+        date: "",
+        name: "",
+        duration: "",
+        rating: ""
+      },
       redirect: false
     };
   }
 
   handleChange(event) {
     const { id, value } = event.target;
-    this.setState(() => ({ [id]: value }));
+    this.setState(state => ({ hike: { ...state.hike, [id]: value } }));
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addHike({
-      ...this.state,
-      date: moment(this.state.date).format("DD / MM / YYYY"),
-      id: uuidv1()
-    });
+    const id = uuidv1();
+    const { date, name, duration, rating } = this.state.hike;
+    fire
+      .database()
+      .ref("hikes")
+      .update({
+        [id]: {
+          date: moment(date).format("DD / MM / YYYY"),
+          name,
+          duration,
+          rating
+        }
+      });
     this.setState(() => ({ redirect: true }));
   }
 
@@ -70,7 +81,7 @@ class NewHike extends React.Component {
   render() {
     if (this.state.redirect) {
       // after the submission, state will be updated so that the page can be redirected to the list of stored hikes
-      return <Redirect to="/my-hikes"/>;
+      return <Redirect to="/my-hikes" />;
     }
     return (
       <section className="new-hike__container">
