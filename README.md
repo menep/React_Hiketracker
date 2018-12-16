@@ -31,6 +31,7 @@ npm start
 ## Known issues
 
 ## Future features
+- Improved performance (lazy loading and code splitting)
 - List sorting
 - More input values (location, scenery rating, difficulty...)
 - New UI for the hike list
