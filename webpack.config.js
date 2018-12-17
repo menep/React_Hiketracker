@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWPP = require("html-webpack-plugin");
+const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -43,12 +44,13 @@ module.exports = {
     hotOnly: true,
     historyApiFallback: true
   },
-  devtool: "inline-source-map",
+  devtool: "cheap-module-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWPP({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
+    new MomentLocalesPlugin()
   ]
 };
