@@ -1,10 +1,8 @@
 const path = require("path");
-const webpack = require("webpack");
 const HTMLWPP = require("html-webpack-plugin");
 const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 module.exports = {
-  mode: "development",
   module: {
     rules: [
       {
@@ -37,16 +35,8 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, "public/"),
-    port: 3000,
-    publicPath: "http://localhost:3000/",
-    hotOnly: true,
-    historyApiFallback: true
-  },
   devtool: "cheap-module-source-map",
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HTMLWPP({
       template: "./src/index.html",
       filename: "./index.html"
